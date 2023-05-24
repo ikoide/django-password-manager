@@ -1,0 +1,186 @@
+.row:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  box-sizing: border-box;
+}
+
+.row + .row {
+  margin-top: 1%;
+}
+.row.no-gutters .col-1 {
+  width: 8.3333333333%;
+}
+.row.no-gutters .col-2 {
+  width: 16.6666666667%;
+}
+.row.no-gutters .col-3 {
+  width: 25%;
+}
+.row.no-gutters .col-4 {
+  width: 33.3333333333%;
+}
+.row.no-gutters .col-5 {
+  width: 41.6666666667%;
+}
+.row.no-gutters .col-6 {
+  width: 50%;
+}
+.row.no-gutters .col-7 {
+  width: 58.3333333333%;
+}
+.row.no-gutters .col-8 {
+  width: 66.6666666667%;
+}
+.row.no-gutters .col-9 {
+  width: 75%;
+}
+.row.no-gutters .col-10 {
+  width: 83.3333333333%;
+}
+.row.no-gutters .col-11 {
+  width: 91.6666666667%;
+}
+.row.no-gutters .col-12 {
+  width: 100%;
+}
+.row.no-gutters [class^=col-] {
+  float: left;
+  margin-right: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.row.no-gutters [class^=col-]:last-child {
+  margin-right: 0;
+  float: right;
+}
+
+[class^=col-] {
+  float: left;
+  margin-right: 1%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+[class^=col-]:last-child {
+  margin-right: 0%;
+}
+
+.col-1 {
+  width: 7.3333333333%;
+}
+
+.col-2 {
+  width: 15.6666666667%;
+}
+
+.col-3 {
+  width: 24%;
+}
+
+.col-4 {
+  width: 32.3333333333%;
+}
+
+.col-5 {
+  width: 40.6666666667%;
+}
+
+.col-6 {
+  width: 49%;
+}
+
+.col-7 {
+  width: 57.3333333333%;
+}
+
+.col-8 {
+  width: 65.6666666667%;
+}
+
+.col-9 {
+  width: 74%;
+}
+
+.col-10 {
+  width: 82.3333333333%;
+}
+
+.col-11 {
+  width: 90.6666666667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.flex-col {
+  flex-grow: 1;
+  flex-basis: 50%;
+  padding: 0rem 0.5rem;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: "SSP";
+}
+
+nav {
+  background-color: #175DDC;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  font-family: "SSPB";
+}
+nav .navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+nav .navbar .nav-section {
+  flex-basis: 50%;
+}
+nav .navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+nav .navbar ul li.left {
+  float: left;
+}
+nav .navbar ul li.right {
+  float: right;
+}
+nav .navbar ul li .nav-link {
+  display: block;
+  text-align: center;
+  padding: 0rem 1rem;
+  text-decoration: none;
+  transition-duration: 200ms;
+  color: #E8E8E8;
+}
+nav .navbar ul li .nav-link:hover {
+  color: #FFFFFF;
+}
+
+/*# sourceMappingURL=main.css.map */

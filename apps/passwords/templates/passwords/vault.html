@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-3">
+        a
+    </div>
+    <div class="col-6">
+        <h2>My Vault</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Notes</th>
+                <th>Actions</th>
+            </tr>
+            {% for entry in entries %}
+                <tr>
+                    <td><a href="{{ entry.uri }}" target="_blank">{{ entry.name}}</a></td>
+                    <td>{{ entry.username }}</td>
+                    <td>{{ entry.password }}</td>
+                    <td>{{ entry.notes }}</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-3">
+        a
+    </div>
+</div>
+{% endblock content %}

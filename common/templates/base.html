@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/fonts.css' %}">
+
+        <title>PasswordManager</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="navbar">
+                    <div class="nav-section">
+                        <ul>
+                            <li class="left"><a class="nav-link" href="#">My Vault</a></li>
+                            <li class="left"><a class="nav-link" href="#">My Vault</a></li>
+                            <li class="left"><a class="nav-link" href="#">My Vault</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <ul>
+                            <li class="right"><a class="nav-link" href="#">Ian</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        {% block content %}{% endblock content %}
+    </body>
+</html>
