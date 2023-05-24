@@ -140,14 +140,15 @@ html, body {
 html, body {
   padding: 0;
   margin: 0;
-  font-family: "SSP";
+  font-family: "Open Sans";
 }
 
 nav {
   background-color: #175DDC;
   height: 3.5rem;
   line-height: 3.5rem;
-  font-family: "SSPB";
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 nav .navbar {
   display: flex;
@@ -174,12 +175,12 @@ nav .navbar ul li.right {
 nav .navbar ul li .nav-link {
   display: block;
   text-align: center;
-  padding: 0rem 1rem;
+  padding: 0rem 0.8rem;
   text-decoration: none;
   transition-duration: 200ms;
-  color: #E8E8E8;
+  color: #D7D7D7;
 }
-nav .navbar ul li .nav-link:hover {
+nav .navbar ul li .nav-link:hover, nav .navbar ul li .nav-link.active {
   color: #FFFFFF;
 }
 
