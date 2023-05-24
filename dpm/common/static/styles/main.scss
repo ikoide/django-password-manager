@@ -7,6 +7,18 @@ html, body {
     font-family: "Open Sans";
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+a { color: #175DDC; text-decoration: none; }
+
+main {
+    padding: 1rem;
+}
+
 nav {
     background-color: #175DDC;
     height: 3.5rem;
@@ -50,5 +62,48 @@ nav {
                 }
             }
         }
+    }
+}
+
+.header {
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.entries-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    td {
+        padding: 0.4rem 0rem;
+    }
+
+    tr:not(:first-child) {
+        border-bottom: 1px solid #DDDDDD;
+    }
+}
+
+.btn {
+    background-color: #FBFBFB;
+    border-color: #CED4DA;
+    color: #175DDC;
+
+    cursor: pointer;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.85rem;
+    border: 1px solid #DDDDDD;
+    border-radius: 0.2rem;
+    font-weight: 400;
+    transition-duration: 400ms;
+
+    &:hover {
+        background-color: #175DDC;
+        color: #FFFFFF;
     }
 }

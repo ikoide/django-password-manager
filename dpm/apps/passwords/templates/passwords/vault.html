@@ -2,11 +2,14 @@
 {% block content %}
 <div class="row">
     <div class="col-3">
-        a
+        <p>Folders nav goes here</p>
     </div>
     <div class="col-6">
-        <h2>My Vault</h2>
-        <table>
+        <div class="header">
+            <h2>My Vault</h2>
+            <button class="btn">Add Item</button>
+        </div>
+        <table class="entries-table">
             <tr>
                 <th>Name</th>
                 <th>Username</th>
@@ -21,15 +24,15 @@
                     <td>{{ entry.password }}</td>
                     <td>{{ entry.notes }}</td>
                     <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <button class="btn">Edit</button>
+                        <button class="btn">Delete</button>
                     </td>
                 </tr>
             {% endfor %}
         </table>
     </div>
     <div class="col-3">
-        a
+        <p>Password generator goes here?</p>
     </div>
 </div>
 {% endblock content %}
