@@ -100,6 +100,10 @@ nav {
     tr:not(:first-child) {
         border-bottom: 1px solid #DDDDDD;
     }
+
+    form {
+        display: inline;
+    }
 }
 
 .btn {
@@ -145,6 +149,15 @@ nav {
     &:hover {
         background-color: #E8E8E8;
         color: #333;
+    }
+}
+
+.btn-danger {
+    color: #dd4b39;
+
+    &:hover {
+        background-color: #dd4b39;
+        color: #FFF;
     }
 }
 

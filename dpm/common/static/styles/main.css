@@ -231,6 +231,9 @@ nav .navbar ul li .nav-link:hover, nav .navbar ul li .nav-link.active {
 .entries-table tr:not(:first-child) {
   border-bottom: 1px solid #DDDDDD;
 }
+.entries-table form {
+  display: inline;
+}
 
 .btn {
   background-color: #FBFBFB;
@@ -271,6 +274,14 @@ nav .navbar ul li .nav-link:hover, nav .navbar ul li .nav-link.active {
 .btn-alt:hover {
   background-color: #E8E8E8;
   color: #333;
+}
+
+.btn-danger {
+  color: #dd4b39;
+}
+.btn-danger:hover {
+  background-color: #dd4b39;
+  color: #FFF;
 }
 
 .modal {

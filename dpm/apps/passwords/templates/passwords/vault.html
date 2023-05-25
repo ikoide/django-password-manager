@@ -108,7 +108,6 @@
                 <th>Name</th>
                 <th>Username</th>
                 <th>Password</th>
-                <th>Notes</th>
                 <th>Actions</th>
             </tr>
             {% for entry in entries %}
@@ -116,10 +115,12 @@
                     <td><a href="{{ entry.uri }}" target="_blank">{{ entry.name}}</a></td>
                     <td>{{ entry.username }}</td>
                     <td><a onclick="navigator.clipboard.writeText('{{ entry.password }}');" style="cursor: pointer;">Copy</a></td>
-                    <td>{{ entry.notes }}</td>
                     <td>
                         <button class="btn">Edit</button>
-                        <button class="btn">Delete</button>
+                        <form method="POST" action="entries/{{ entry.uid }}/delete/">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
             {% endfor %}

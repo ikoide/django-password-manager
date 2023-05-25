@@ -1,11 +1,14 @@
+from django.http import Http404
+from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DeleteView
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from apps.passwords.models import Entry
 from apps.passwords.forms import EntryForm
 
-class VaultView(CreateView):
+class VaultView(LoginRequiredMixin, CreateView):
     template_name = "passwords/vault.html"
     form_class = EntryForm
 
@@ -22,3 +25,14 @@ class VaultView(CreateView):
         self.object.save()
 
         return super(VaultView, self).form_valid(form)
+
+class EntryDeleteView(DeleteView):
+    model = Entry
+    success_url = reverse_lazy("passwords:vault")
+
+    def get_object(self, queryset=None):
+        obj = super(EntryDeleteView, self).get_object()
+        if not obj.user == self.request.user:
+            raise Http404
+
+        return obj
