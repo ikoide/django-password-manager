@@ -115,7 +115,7 @@
                 <tr>
                     <td><a href="{{ entry.uri }}" target="_blank">{{ entry.name}}</a></td>
                     <td>{{ entry.username }}</td>
-                    <td>{{ entry.password }}</td>
+                    <td><a onclick="navigator.clipboard.writeText('{{ entry.password }}');" style="cursor: pointer;">Copy</a></td>
                     <td>{{ entry.notes }}</td>
                     <td>
                         <button class="btn">Edit</button>
@@ -161,6 +161,12 @@ const openModal = function () {
 };
 // open modal event
 openModalBtn.addEventListener("click", openModal);
+</script>
+
+<script>
+function copy(text) {
+     navigator.clipboard.writeText(text);
+ }
 </script>
 
 {% endblock content %}
