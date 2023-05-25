@@ -14,14 +14,20 @@
                 <div class="navbar">
                     <div class="nav-section">
                         <ul>
-                            <li class="left"><a class="nav-link active" href="#">My Vault</a></li>
+                            <li class="left"><a class="nav-link active" href="{% url 'passwords:vault' %}">My Vault</a></li>
                             <li class="left"><a class="nav-link" href="#">Generator</a></li>
                             <li class="left"><a class="nav-link" href="#">Settings</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
                         <ul>
-                            <li class="right"><a class="nav-link" href="#">Ian</a></li>
+                            {% if user.is_authenticated %}
+                                <li class="right"><a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a></li>
+                                <li class="right"><a class="nav-link" href="#">{{ user.email }}</a></li>
+                            {% else %}
+                                <li class="right"><a class="nav-link" href="{% url 'accounts:register' %}">Register</a></li>
+                                <li class="right"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>

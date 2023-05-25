@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class Entry(models.Model):
     uid = models.AutoField(primary_key=True)
@@ -8,4 +11,5 @@ class Entry(models.Model):
     uri = models.CharField(max_length=128)
     notes = models.TextField()
 
-    ## TODO user, folder
+    folder = models.CharField(max_length=32)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="entries")

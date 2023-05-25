@@ -2,9 +2,9 @@
 #+AUTHOR: Ian Koide
 
 * TODO Main
-- [ ] Implement user authentication
+- [X] Implement user authentication
+- [-] Create folders functionality
 - [ ] Style the vault page (minimally)
 - [ ] Create edit entry functionality (modal or dedicated page?)
 - [ ] Create user settings page
-- [ ] Create folders
 - [ ] Create generate password functionality
