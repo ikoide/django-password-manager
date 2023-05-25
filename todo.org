@@ -3,6 +3,8 @@
 
 * TODO Main
 - [X] Implement user authentication
+- [X] Implement new item front-end
+- [X] Implement new item back-end
 - [-] Create folders functionality
 - [ ] Style the vault page (minimally)
 - [ ] Create edit entry functionality (modal or dedicated page?)

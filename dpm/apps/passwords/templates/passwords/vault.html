@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 {% block content %}
 <div class="row">
     <div class="col-3">
@@ -16,7 +17,8 @@
                     <h3 class="bold">ADD ITEM</h3>
                     <button class="btn-close">⨉</button>
                 </div>
-                <form>
+                <form method="POST">
+                    {% csrf_token %}
                     <div class="label-field">
                         <div class="fit-input-wrapper">
                             <div class="fit-input-wrapper-inner">
@@ -30,7 +32,7 @@
                     <div class="field">
                         <div class="fit-input-wrapper">
                             <div class="fit-input-wrapper-inner">
-                                <input type="text" class="fit-input"/>
+                                {% render_field form.name class+="fit-input" %}
                             </div>
                             <div class="fit-input-wrapper-inner">
                                 <select name="folders" class="fit-input">
@@ -56,10 +58,10 @@
                     <div class="field">
                         <div class="fit-input-wrapper">
                             <div class="fit-input-wrapper-inner">
-                                <input type="text" class="fit-input"/>
+                                {% render_field form.username class+="fit-input" %}
                             </div>
                             <div class="fit-input-wrapper-inner">
-                                <input type="text" class="fit-input"/>
+                                {% render_field form.password class+="fit-input" %}
                             </div>
                         </div>
                     </div>
@@ -74,7 +76,7 @@
                     <div class="field">
                         <div class="fit-input-wrapper">
                             <div class="fit-input-wrapper-inner">
-                                <input type="text" class="fit-input" placeholder="i.e. https://google.com"/>
+                                {% render_field form.uri class+="fit-input" %}
                             </div>
                         </div>
                     </div>
@@ -94,7 +96,7 @@
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-lg btn-pop">Save</button>
+                        <button type="submit" class="btn btn-lg btn-pop">Save</button>
                         <button class="btn btn-lg btn-alt">Cancel</button>
                     </div>
                 </form>

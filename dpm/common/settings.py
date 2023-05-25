@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "common",
     "apps.accounts",
     "apps.passwords",
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
