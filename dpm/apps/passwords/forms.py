@@ -5,4 +5,4 @@ from apps.passwords.models import Entry
 class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
-        fields = ("name", "username", "password", "uri")
+        fields = ("name", "username", "password", "uri", "notes")

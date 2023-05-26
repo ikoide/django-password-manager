@@ -91,7 +91,7 @@
                     <div class="field">
                         <div class="fit-input-wrapper">
                             <div class="fit-input-wrapper-inner">
-                                <textarea rows=6 class="fit-input"></textarea>
+                                {% render_field form.notes rows=6 class+="fit-input" %}
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
             </tr>
             {% for entry in entries %}
                 <tr>
-                    <td><a href="{{ entry.uri }}" target="_blank">{{ entry.name}}</a></td>
+                    <td><a href="{{ entry.uri }}" target="_blank">{{ entry.name }}</a></td>
                     <td>{{ entry.username }}</td>
                     <td><a onclick="navigator.clipboard.writeText('{{ entry.password }}');" style="cursor: pointer;">Copy</a></td>
                     <td>

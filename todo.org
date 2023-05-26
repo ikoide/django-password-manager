@@ -6,6 +6,9 @@
 - [X] Implement new item front-end
 - [X] Implement new item back-end
 - [X] Hide password on main vault view replaced with copy to clipboard (not secure)
+- [X] Delete entry functionality
+- [X] Notes
+- [ ] Edit entry functionality
 - [-] Create folders functionality
 - [ ] Style the vault page (minimally)
 - [ ] Create edit entry functionality (modal or dedicated page?)
