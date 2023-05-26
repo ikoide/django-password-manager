@@ -128,7 +128,12 @@
             </tr>
             {% for entry in entries %}
                 <tr>
-                    <td><a href="{{ entry.uri }}" target="_blank">{{ entry.name }}</a></td>
+                    <td>
+                        <div class="entry-name-container">
+                            <img src="{{ entry.uri }}/favicon.ico"/>
+                            <a href="{{ entry.uri }}" target="_blank">{{ entry.name }}</a>
+                        </div>
+                    </td>
                     <td>{{ entry.username }}</td>
                     <td><a onclick="navigator.clipboard.writeText('{{ entry.password }}');" style="cursor: pointer;">Copy</a></td>
                     <td>

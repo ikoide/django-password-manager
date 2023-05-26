@@ -248,6 +248,15 @@ nav .navbar ul li .nav-link:hover, nav .navbar ul li .nav-link.active {
 .entries-table form {
   display: inline;
 }
+.entries-table .entry-name-container {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+.entries-table .entry-name-container img {
+  height: 0.95rem;
+  width: 0.95rem;
+}
 
 .btn {
   background-color: #FBFBFB;

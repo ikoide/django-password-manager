@@ -111,6 +111,18 @@ nav {
     form {
         display: inline;
     }
+
+    .entry-name-container {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+
+        img {
+            height: 0.95rem;
+            width: 0.95rem;
+        }
+    }
+
 }
 
 .btn {
