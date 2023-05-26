@@ -1,10 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-lg btn-danger">Delete Account</button>
-    <p style="font-size: 0.84rem; color: #333;">This action is permanent.</p>
-</form>
-
+<div class="row">
+    <div class="col-2-5">
+        <div class="container">
+            <div class="container-header">
+                <p>SETTINGS</p>
+            </div>
+            <div class="container-main">
+                <input class="fit-input" type="text" placeholder="Search Settings" />
+                <div class="folders">
+                    <ul>
+                        <li><a href="#">Manage Account</a></li>
+                        <li><a href="#">Options</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-7">
+        <div class="header">
+            <h2>My Account</h2>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-lg btn-danger">Delete Account</button>
+            <p class="small">This action is permanent.</p>
+        </form>
+    </div>
+    <div class="col-2-5">
+    </div>
+</div>
 {% endblock content %}

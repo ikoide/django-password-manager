@@ -16,4 +16,4 @@ class Entry(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="entries")
 
     def get_absolute_url(self):
-        return reverse("passwords:vault")
+        return reverse("passwords:vault", kwargs={"pk": self.pk})
