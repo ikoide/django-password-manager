@@ -82,6 +82,7 @@ $grid-spacing: 2%;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  justify-content: space-between;
 }
 
 .flex-col {

@@ -41,6 +41,11 @@ nav {
         flex-direction: row;
         justify-content: flex-start;
 
+        width: 69%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+
         .nav-section {
             flex-basis: percentage(1/2);
         }
