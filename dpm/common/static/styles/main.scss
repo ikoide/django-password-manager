@@ -23,6 +23,8 @@ a { color: #175DDC; text-decoration: none; }
 
 main {
     padding: 1rem;
+    width: 70%;
+    margin: 0 auto;
 }
 
 nav {
@@ -272,5 +274,63 @@ button {
 
     &textarea {
         min-height: 1000px;
+    }
+}
+
+.container {
+    background-color: #FFF;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+
+    font-size: 0.92rem;
+
+    .container-header {
+        background-color: rgba(0,0,0,.03);
+        color: #333;
+        padding: 0.6rem 1.25rem;
+        border-bottom: 1px solid #ced4da;
+
+        p {
+            font-weight: 700;
+            font-size: 0.94rem;
+        }
+    }
+
+    .container-main {
+        padding: 1rem 1rem;
+        min-height: 4rem;
+
+        .folders {
+            padding: 1rem 0rem;
+        }
+
+        h3 {
+            color: #6c757d;
+            font-size: 0.94rem;
+            margin-bottom: 0.2rem;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            margin-left: 0.4rem;
+
+            li a {
+                color: #333;
+                margin-bottom: 0.1rem;
+            }
+        }
+    }
+}
+
+.generated-password {
+    input {
+        width: 100%;
+        border: 1px solid #ced4da;
+        text-align: center;
+        padding: 0.6rem 0rem;
+        margin-bottom: 1rem;
     }
 }

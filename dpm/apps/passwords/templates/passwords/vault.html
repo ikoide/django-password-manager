@@ -2,10 +2,25 @@
 {% load widget_tweaks %}
 {% block content %}
 <div class="row">
-    <div class="col-3">
-        <p>Folders nav goes here</p>
+    <div class="col-2-5">
+        <div class="container">
+            <div class="container-header">
+                <p>FILTERS</p>
+            </div>
+            <div class="container-main">
+                <input class="fit-input" type="text" placeholder="Search Vault" />
+                <div class="folders">
+                    <h3>FOLDERS</h3>
+                    <ul>
+                        <li><a href="#">Work</a></li>
+                        <li><a href="#">School</a></li>
+                        <li><a href="#">Recycle Bin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-6 vault-list">
+    <div class="col-7 vault-list">
         <div class="header">
             <h2>My Vault</h2>
             <button class="btn btn-open">+ Add Item</button>
@@ -126,8 +141,18 @@
             {% endfor %}
         </table>
     </div>
-    <div class="col-3">
-        <p>Password generator goes here?</p>
+    <div class="col-2-5">
+        <div class="container">
+            <div class="container-header">
+                <p>GENERATOR</p>
+            </div>
+            <div class="container-main">
+                <div class="generated-password">
+                    <input type="text" id="generated-password" value="Generate!" onclick="this.select();">
+                </div>
+                <button class="btn btn-lg btn-pop" onclick="gen_pass(16)">Generate</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -168,6 +193,23 @@ openModalBtn.addEventListener("click", openModal);
 function copy(text) {
      navigator.clipboard.writeText(text);
  }
+</script>
+
+<script>
+    let pass = document.getElementById("generated-password");
+    
+    function gen_pass(length) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&()*+-/:;<=>?@[\]^_`{|}~';
+        const charactersLength = characters.length;
+        let counter = 0;
+        while (counter < length) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            counter += 1;
+        }
+    
+        pass.value = result;
+    }
 </script>
 
 {% endblock content %}

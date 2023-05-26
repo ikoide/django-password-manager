@@ -12,7 +12,7 @@
 
 html, body { box-sizing: border-box; }
 
-$grid-spacing: 1%;
+$grid-spacing: 2%;
 
 .row {
   @extend %clearfix;
@@ -24,6 +24,7 @@ $grid-spacing: 1%;
   &.no-gutters {
     .col-1 { width: (100% / 12); }
     .col-2 { width: (100% / 6); }
+    .col-2-5 { width: (100% / 4.8); }
     .col-3 { width: (100% / 4); }
     .col-4 { width: (100% / 3); }
     .col-5 { width: (100% / 2.4); }
@@ -64,6 +65,7 @@ $grid-spacing: 1%;
 
 .col-1 { width: (100% / 12) - ($grid-spacing); }
 .col-2 { width: (100% / 6) - ($grid-spacing); }
+.col-2-5 { width: (100% / 4.8) - ($grid-spacing); }
 .col-3 { width: (100% / 4) - ($grid-spacing); }
 .col-4 { width: (100% / 3) - ($grid-spacing); }
 .col-5 { width: (100% / 2.4) - ($grid-spacing); }

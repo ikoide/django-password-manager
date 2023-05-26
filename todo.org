@@ -10,7 +10,9 @@
 - [X] Notes
 - [ ] Edit entry functionality
 - [-] Create folders functionality
-- [ ] Style the vault page (minimally)
+  - [X] front-end
+  - [ ] back-end
+- [X] Style the vault page (minimally)
 - [ ] Create edit entry functionality (modal or dedicated page?)
 - [ ] Create user settings page
-- [ ] Create generate password functionality
+- [X] Create generate password functionality
