@@ -5,6 +5,7 @@ from django.views.generic import CreateView, DeleteView, FormView, TemplateView,
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from apps.accounts.mixins import UserIsOwnerMixin
 from apps.passwords.models import Entry
 from apps.passwords.forms import EntryForm
 
@@ -20,10 +21,9 @@ class EntryView(LoginRequiredMixin, TemplateView):
 
         return context
 
-class EntryCreateView(CreateView):
+class EntryCreateView(LoginRequiredMixin, CreateView):
     model = Entry
     form_class = EntryForm
-    template_name = "passwords/vault.html"
     success_url = reverse_lazy("passwords:vault")
 
     def form_valid(self, form):
@@ -33,19 +33,11 @@ class EntryCreateView(CreateView):
 
         return super(EntryCreateView, self).form_valid(form)
 
-class EntryUpdateView(UpdateView):
+class EntryUpdateView(UserIsOwnerMixin, UpdateView):
     model = Entry
     form_class = EntryForm
-    template_name = "passwords/vault.html"
     success_url = reverse_lazy("passwords:vault")
 
-class EntryDeleteView(DeleteView):
+class EntryDeleteView(UserIsOwnerMixin, DeleteView):
     model = Entry
     success_url = reverse_lazy("passwords:vault")
-
-    def get_object(self, queryset=None):
-        obj = super(EntryDeleteView, self).get_object()
-        if not obj.user == self.request.user:
-            raise Http404
-
-        return obj
