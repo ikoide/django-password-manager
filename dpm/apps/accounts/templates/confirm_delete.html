@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-lg btn-danger">Delete Account</button>
+    <p style="font-size: 0.84rem; color: #333;">This action is permanent.</p>
+</form>
+
+{% endblock content %}
