@@ -10,15 +10,48 @@
             <div class="container-main">
                 <input class="fit-input" type="text" placeholder="Search Vault" />
                 <div class="folders">
-                    <h3>FOLDERS</h3>
+                    <div class="header">
+                        <h3>FOLDERS</h3>
+                        <button class="btn btn-open" modal-btn-id="add_folder">+</button>
+                    </div>
                     <ul>
-                        <li><a href="#">Work</a></li>
-                        <li><a href="#">School</a></li>
-                        <li><a href="#">Recycle Bin</a></li>
+                        {% for folder in user.folders.all %}
+                            <li><a href="{% url 'passwords:vault' %}?folder={{ folder.name }}">{{ folder.name }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
+
             </div>
         </div>
+                <div class="overlay hidden" modal-id="add_folder">
+                    <section class="modal hidden" modal-id="add_folder" style="width: 20vw!important;">
+                        <div class="flex">
+                            <h3 class="bold">ADD FOLDER</h3>
+                            <button class="btn-close" modal-btn-id="add_folder">⨉</button>
+                        </div>
+                        <form method="POST" action="{% url 'passwords:new_folder' %}">
+                            {% csrf_token %}
+                            <div class="label-field">
+                                <div class="fit-input-wrapper">
+                                    <div class="fit-input-wrapper-inner">
+                                        <label>Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="fit-input-wrapper">
+                                    <div class="fit-input-wrapper-inner">
+                                        <input type="text" name="name" class="fit-input"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-lg btn-pop">Save</button>
+                                <button class="btn btn-lg btn-alt">Cancel</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
     </div>
     <div class="col-7 vault-list">
         <div class="header">
@@ -51,12 +84,7 @@
                                 {% render_field form.name class+="fit-input" %}
                             </div>
                             <div class="fit-input-wrapper-inner">
-                                <select name="folders" class="fit-input">
-                                    <option value="no_folder">No Folder</option>
-                                    <option value="no_folder">School</option>
-                                    <option value="no_folder">Work</option>
-                                    <option value="no_folder">Recycle Bin</option>
-                                </select>
+                                {% render_field form.folder class+="fit-input" %}
                             </div>
                         </div>
                     </div>

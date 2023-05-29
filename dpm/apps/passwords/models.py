@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 
+from apps.accounts.models import Folder
+
 User = get_user_model()
 
 class Entry(models.Model):
@@ -12,7 +14,7 @@ class Entry(models.Model):
     uri = models.CharField(max_length=128)
     notes = models.TextField()
 
-    folder = models.CharField(max_length=32)
+    folder = models.ForeignKey(Folder, on_delete=models.CASCADE, related_name="entries")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="entries")
 
     def get_absolute_url(self):

@@ -8,4 +8,5 @@ urlpatterns = [
     path("entries/new", views.EntryCreateView.as_view(), name="new"),
     path("entries/<int:pk>/edit", views.EntryUpdateView.as_view(), name="edit"),
     path("entries/<int:pk>/delete/", views.EntryDeleteView.as_view(), name="delete"),
+    path("new_folder", views.FolderCreateView.as_view(), name="new_folder"),
 ]

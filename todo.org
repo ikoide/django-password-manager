@@ -4,8 +4,14 @@
 * TODO Main
 - [X] Delete & edit GET protection
 - [X] Add messages? (flask equivilant is flashes, i.e. alerts that are viewed at the top of the page. usually after an action is completed)
+- [-] Folders
+  - [X] Folder model
+  - [X] Default folder creation for user
+  - [X] Folders sidenav list
+  - [X] Folder querying in vault view
+  - [X] Add new folder form
+  - [ ] Delete folder form
 - [ ] Search filters
 - [ ] Passwords crypto
-- [ ] Folders
 - [ ] Style authentication
 - [ ] Fix notes (they aren't saving)
