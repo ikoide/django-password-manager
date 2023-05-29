@@ -470,4 +470,38 @@ button {
   padding: 0.2rem 0rem;
 }
 
+.main-flashes {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.flash-message {
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.4rem 0rem;
+  text-align: center;
+}
+.flash-message p {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #FFF;
+}
+
+.flash-info {
+  background-color: #5bc0de;
+}
+
+.flash-success {
+  background-color: #5cb85c;
+}
+
+.flash-warning {
+  background-color: #f0ad4e;
+}
+
+.flash-error {
+  background-color: #d9534f;
+}
+
 /*# sourceMappingURL=main.css.map */

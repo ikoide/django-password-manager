@@ -1,11 +1,12 @@
-from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DeleteView, FormView, TemplateView, UpdateView
 from django.shortcuts import render
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from apps.accounts.mixins import UserIsOwnerMixin
+from common.mixins import InvalidGetMixin
 from apps.passwords.models import Entry
 from apps.passwords.forms import EntryForm
 
@@ -21,7 +22,7 @@ class EntryView(LoginRequiredMixin, TemplateView):
 
         return context
 
-class EntryCreateView(LoginRequiredMixin, CreateView):
+class EntryCreateView(InvalidGetMixin, LoginRequiredMixin, CreateView):
     model = Entry
     form_class = EntryForm
     success_url = reverse_lazy("passwords:vault")
@@ -33,11 +34,11 @@ class EntryCreateView(LoginRequiredMixin, CreateView):
 
         return super(EntryCreateView, self).form_valid(form)
 
-class EntryUpdateView(UserIsOwnerMixin, UpdateView):
+class EntryUpdateView(InvalidGetMixin, UserIsOwnerMixin, UpdateView):
     model = Entry
     form_class = EntryForm
     success_url = reverse_lazy("passwords:vault")
 
-class EntryDeleteView(UserIsOwnerMixin, DeleteView):
+class EntryDeleteView(InvalidGetMixin, UserIsOwnerMixin, DeleteView):
     model = Entry
     success_url = reverse_lazy("passwords:vault")

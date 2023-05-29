@@ -126,116 +126,116 @@
                 <th>Password</th>
                 <th>Actions</th>
             </tr>
-            {% for entry in entries %}
-                <tr>
-                    <td>
-                        <div class="entry-name-container">
-                            <img src="{{ entry.uri }}/favicon.ico"/>
-                            <a href="{{ entry.uri }}" target="_blank">{{ entry.name }}</a>
-                        </div>
-                    </td>
-                    <td>{{ entry.username }}</td>
-                    <td><a onclick="navigator.clipboard.writeText('{{ entry.password }}');" style="cursor: pointer;">Copy</a></td>
-                    <td>
-                        <button class="btn btn-open" modal-btn-id="edit_{{ entry.pk }}">Edit</button>
-                        <div class="overlay hidden" modal-id="edit_{{ entry.pk }}">
-                            <section class="modal hidden" modal-id="edit_{{ entry.pk }}">
-                                <div class="flex">
-                                    <h3 class="bold">EDIT ITEM</h3>
-                                    <button class="btn-close" modal-btn-id="edit_{{ entry.pk }}">⨉</button>
+                {% for entry in entries %}
+                        <tr>
+                            <td>
+                                <div class="entry-name-container">
+                                    <img src="{{ entry.uri }}/favicon.ico"/>
+                                    <a href="{{ entry.uri }}" target="_blank">{{ entry.name }}</a>
                                 </div>
-                                <form method="POST" action="{% url 'passwords:edit' entry.pk %}">
+                            </td>
+                            <td>{{ entry.username }}</td>
+                            <td><a onclick="navigator.clipboard.writeText('{{ entry.password }}');" style="cursor: pointer;">Copy</a></td>
+                            <td>
+                                <button class="btn btn-open" modal-btn-id="edit_{{ entry.pk }}">Edit</button>
+                                <div class="overlay hidden" modal-id="edit_{{ entry.pk }}">
+                                    <section class="modal hidden" modal-id="edit_{{ entry.pk }}">
+                                        <div class="flex">
+                                            <h3 class="bold">EDIT ITEM</h3>
+                                            <button class="btn-close" modal-btn-id="edit_{{ entry.pk }}">⨉</button>
+                                        </div>
+                                        <form method="POST" action="{% url 'passwords:edit' entry.pk %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="pk" value="8">
+                                            <div class="label-field">
+                                                <div class="fit-input-wrapper">
+                                                    <div class="fit-input-wrapper-inner">
+                                                        <label>Name</label>
+                                                    </div>
+                                                    <div class="fit-input-wrapper-inner">
+                                                        <label>Folder</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="fit-input-wrapper">
+                                                    <div class="fit-input-wrapper-inner">
+                                                        {% render_field form.name class+="fit-input" value=entry.name %}
+                                                    </div>
+                                                    <div class="fit-input-wrapper-inner">
+                                                        <select name="folders" class="fit-input">
+                                                            <option value="no_folder">No Folder</option>
+                                                            <option value="no_folder">School</option>
+                                                            <option value="no_folder">Work</option>
+                                                            <option value="no_folder">Recycle Bin</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="label-field">
+                                                <div class="fit-input-wrapper">
+                                                    <div class="fit-input-wrapper-inner">
+                                                        <label>Username</label>
+                                                    </div>
+                                                    <div class="fit-input-wrapper-inner">
+                                                        <label>Password</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="fit-input-wrapper">
+                                                    <div class="fit-input-wrapper-inner">
+                                                        {% render_field form.username class+="fit-input" value=entry.username %}
+                                                    </div>
+                                                    <div class="fit-input-wrapper-inner">
+                                                        {% render_field form.password class+="fit-input" value=entry.password %}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="label-field">
+                                                <div class="fit-input-wrapper">
+                                                    <div class="fit-input-wrapper-inner">
+                                                        <label>URI</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="fit-input-wrapper">
+                                                    <div class="fit-input-wrapper-inner">
+                                                        {% render_field form.uri class+="fit-input" value=entry.uri %}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="label-field">
+                                                <div class="fit-input-wrapper">
+                                                    <div class="fit-input-wrapper-inner">
+                                                        <label>Notes</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="fit-input-wrapper">
+                                                    <div class="fit-input-wrapper-inner">
+                                                        {% render_field form.notes rows=6 class+="fit-input" value=entry.notes %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button type="submit" class="btn btn-lg btn-pop">Save</button>
+                                                <button class="btn btn-lg btn-alt">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </section>
+                                </div>
+                                <form method="POST" action="entries/{{ entry.uid }}/delete/">
                                     {% csrf_token %}
-                                    <input type="hidden" name="pk" value="8">
-                                    <div class="label-field">
-                                        <div class="fit-input-wrapper">
-                                            <div class="fit-input-wrapper-inner">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="fit-input-wrapper-inner">
-                                                <label>Folder</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="fit-input-wrapper">
-                                            <div class="fit-input-wrapper-inner">
-                                                {% render_field form.name class+="fit-input" value=entry.name %}
-                                            </div>
-                                            <div class="fit-input-wrapper-inner">
-                                                <select name="folders" class="fit-input">
-                                                    <option value="no_folder">No Folder</option>
-                                                    <option value="no_folder">School</option>
-                                                    <option value="no_folder">Work</option>
-                                                    <option value="no_folder">Recycle Bin</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="label-field">
-                                        <div class="fit-input-wrapper">
-                                            <div class="fit-input-wrapper-inner">
-                                                <label>Username</label>
-                                            </div>
-                                            <div class="fit-input-wrapper-inner">
-                                                <label>Password</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="fit-input-wrapper">
-                                            <div class="fit-input-wrapper-inner">
-                                                {% render_field form.username class+="fit-input" value=entry.username %}
-                                            </div>
-                                            <div class="fit-input-wrapper-inner">
-                                                {% render_field form.password class+="fit-input" value=entry.password %}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="label-field">
-                                        <div class="fit-input-wrapper">
-                                            <div class="fit-input-wrapper-inner">
-                                                <label>URI</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="fit-input-wrapper">
-                                            <div class="fit-input-wrapper-inner">
-                                                {% render_field form.uri class+="fit-input" value=entry.uri %}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="label-field">
-                                        <div class="fit-input-wrapper">
-                                            <div class="fit-input-wrapper-inner">
-                                                <label>Notes</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="fit-input-wrapper">
-                                            <div class="fit-input-wrapper-inner">
-                                                {% render_field form.notes rows=6 class+="fit-input" value=entry.notes %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <button type="submit" class="btn btn-lg btn-pop">Save</button>
-                                        <button class="btn btn-lg btn-alt">Cancel</button>
-                                    </div>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
-                            </section>
-                        </div>
-                        <form method="POST" action="entries/{{ entry.uid }}/delete/">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
+                            </td>
+                        </tr>
             {% endfor %}
         </table>
     </div>

@@ -13,6 +13,15 @@
     </head>
     <body>
         <header>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="main-flashes">
+                        <div class="flash-message flash-{{ message.tags }}">
+                            <p>{{ message }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
             <nav>
                 <div class="navbar">
                     <div class="nav-section">
@@ -35,7 +44,6 @@
                             {% endif %}
                         </ul>
                     </div>
-                        </div>
                 </div>
             </nav>
         </header>

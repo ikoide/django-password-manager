@@ -2,20 +2,10 @@
 #+AUTHOR: Ian Koide
 
 * TODO Main
-- [X] Create edit entry functionality (modal or dedicated page?)
-- [X] Implement user authentication
-- [X] Implement new item front-end
-- [X] Implement new item back-end
-- [X] Hide password on main vault view replaced with copy to clipboard (not secure)
-- [X] Delete entry functionality
-- [X] Notes
+- [X] Delete & edit GET protection
+- [X] Add messages? (flask equivilant is flashes, i.e. alerts that are viewed at the top of the page. usually after an action is completed)
+- [ ] Search filters
+- [ ] Passwords crypto
+- [ ] Folders
+- [ ] Style authentication
 - [ ] Fix notes (they aren't saving)
-- [X] Create Mixin to check if user is owner of target object
-- [-] Create folders functionality
-  - [X] front-end
-  - [ ] back-end
-- [X] Style the vault page (minimally)
-- [ ] Add messages? (flask equivilant is flashes, i.e. alerts that are viewed at the top of the page. usually after an action is completed)
-- [X] Create user settings page
-  - [X] Delete account
-- [X] Create generate password functionality

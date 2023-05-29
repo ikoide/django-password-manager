@@ -1,10 +1,8 @@
-from django.http import Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, DeleteView
 from django.urls import reverse, reverse_lazy
 
 from apps.accounts.models import User
