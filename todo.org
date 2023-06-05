@@ -2,6 +2,7 @@
 #+AUTHOR: Ian Koide
 
 * TODO Main
+- [X] Style authentication
 - [X] Delete & edit GET protection
 - [X] Add messages? (flask equivilant is flashes, i.e. alerts that are viewed at the top of the page. usually after an action is completed)
 - [-] Folders
@@ -11,7 +12,6 @@
   - [X] Folder querying in vault view
   - [X] Add new folder form
   - [ ] Delete folder form
-- [ ] Search filters
-- [ ] Passwords crypto
-- [ ] Style authentication
+- [X] Search filters
+- [X] Passwords crypto
 - [ ] Fix notes (they aren't saving)

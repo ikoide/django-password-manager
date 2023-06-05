@@ -155,6 +155,11 @@ html, body {
   font-family: "Open Sans";
 }
 
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
@@ -456,6 +461,13 @@ button {
   margin-bottom: 0.1rem;
 }
 
+.container-sm {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .generated-password input {
   width: 100%;
   border: 1px solid #ced4da;
@@ -502,6 +514,15 @@ button {
 
 .flash-error {
   background-color: #d9534f;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

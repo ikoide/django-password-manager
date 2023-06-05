@@ -8,7 +8,9 @@
                 <p>FILTERS</p>
             </div>
             <div class="container-main">
-                <input class="fit-input" type="text" placeholder="Search Vault" />
+                <form method="GET" action="{% url 'passwords:vault' %}">
+                    <input class="fit-input" name="search" type="text" placeholder="Search Vault" />
+                </form>
                 <div class="folders">
                     <div class="header">
                         <h3>FOLDERS</h3>
@@ -16,7 +18,7 @@
                     </div>
                     <ul>
                         {% for folder in user.folders.all %}
-                            <li><a href="{% url 'passwords:vault' %}?folder={{ folder.name }}">{{ folder.name }}</a></li>
+                        <li><a href="{% url 'passwords:vault' %}?folder={{ folder.name }}">{{ folder.name }} <span class="small">({{ folder.entries.all|length }})</span></a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -154,6 +156,9 @@
                 <th>Password</th>
                 <th>Actions</th>
             </tr>
+                {% if entries.all|length == 0 %}
+                    <td>No entries found.</td>
+                {% endif %}
                 {% for entry in entries %}
                         <tr>
                             <td>
@@ -191,12 +196,7 @@
                                                         {% render_field form.name class+="fit-input" value=entry.name %}
                                                     </div>
                                                     <div class="fit-input-wrapper-inner">
-                                                        <select name="folders" class="fit-input">
-                                                            <option value="no_folder">No Folder</option>
-                                                            <option value="no_folder">School</option>
-                                                            <option value="no_folder">Work</option>
-                                                            <option value="no_folder">Recycle Bin</option>
-                                                        </select>
+                                                        {% render_field form.folder class+="fit-input" %}
                                                     </div>
                                                 </div>
                                             </div>

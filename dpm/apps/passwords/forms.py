@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import Textarea
+from django.forms import TextInput
 
 from apps.passwords.models import Entry
 from apps.accounts.models import Folder
@@ -13,6 +13,14 @@ class EntryForm(forms.ModelForm):
 
         self.fields["folder"].queryset = self.user.folders.all()
 
+        try:
+            self.fields["folder"].initial = self.instance.folder
+        except AttributeError:
+            self.fields["folder"].initial = self.user.folders.get(name="No Folder")
+
     class Meta:
         model = Entry
         fields = ("name", "username", "password", "uri", "notes", "folder")
+        widgets = {
+            "password": TextInput()
+        }

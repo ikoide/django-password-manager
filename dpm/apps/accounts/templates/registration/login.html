@@ -1,11 +1,45 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block content %}
-
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn" type="submit">Log In</button>
-</form>
-
+<div class="container container-sm">
+    <div class="container-header">
+        <p>LOGIN</p>
+    </div>
+    <div class="container-main">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="label-field">
+                <div class="fit-input-wrapper">
+                    <div class="fit-input-wrapper-inner">
+                        <label>Email</label>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="fit-input-wrapper">
+                    <div class="fit-input-wrapper-inner">
+                        {% render_field form.username class+="fit-input" %}
+                    </div>
+                </div>
+            </div>
+            <div class="label-field">
+                <div class="fit-input-wrapper">
+                    <div class="fit-input-wrapper-inner">
+                        <label>Password</label>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="fit-input-wrapper">
+                    <div class="fit-input-wrapper-inner">
+                        {% render_field form.password class+="fit-input" %}
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-lg btn-pop" type="submit">Log In</button>
+        </form>
+        <p class="small" style="margin-top: 0.8rem;">Don't have an account? <a href="{% url 'accounts:register' %}">Sign up.</a></p>
+    </div>
+</div>
 {% endblock content %}

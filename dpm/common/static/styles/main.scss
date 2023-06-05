@@ -11,6 +11,11 @@ html, body {
     font-family: "Open Sans";
 }
 
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
@@ -342,6 +347,13 @@ button {
     }
 }
 
+.container-sm {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 .generated-password {
     input {
         width: 100%;
@@ -377,3 +389,12 @@ button {
 .flash-success { background-color: #5cb85c; }
 .flash-warning { background-color: #f0ad4e; }
 .flash-error { background-color: #d9534f; }
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}

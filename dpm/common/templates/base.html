@@ -8,10 +8,13 @@
 
         <script src="{% static 'js/modals.js' %}"></script>
         <script src="{% static 'js/util.js' %}"></script>
+        <script src="{% static 'js/particles.js' %}"></script>
 
         <title>DjangoPasswordManager</title>
     </head>
     <body>
+        <div id="particles-js">
+        </div>
         <header>
             {% if messages %}
                 {% for message in messages %}
@@ -51,4 +54,10 @@
             {% block content %}{% endblock content %}
         </main>
     </body>
+    <script>
+     /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+    particlesJS.load('particles-js', "{% static 'js/particles.json' %}", function() {
+        console.log('callback - particles.js config loaded');
+    });
+    </script>
 </html>

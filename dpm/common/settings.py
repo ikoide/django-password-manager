@@ -118,3 +118,7 @@ LOGIN_REDIRECT_URL = "passwords:vault"
 LOGOUT_REDIRECT_URL = "passwords:vault"
 
 AUTH_USER_MODEL = "accounts.User"
+
+SALT_KEY = [
+    "XAdKI1dtcmdWew05PuFjkvHDdJjxNK2Poo1zKsUvsGsicCPZspnlaxPcT96cp3vg"
+]

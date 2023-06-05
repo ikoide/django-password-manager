@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DeleteView, FormView, TemplateView, UpdateView
@@ -19,6 +20,7 @@ class EntryView(LoginRequiredMixin, TemplateView):
 
     def get(self, request, *args, **kwargs):
         folder_name = request.GET.get("folder")
+        search = request.GET.get("search")
 
         if folder_name:
             try:
@@ -27,6 +29,13 @@ class EntryView(LoginRequiredMixin, TemplateView):
             except Folder.DoesNotExist:
                 messages.warning(request, f"Folder '{folder_name}' does not exist.")
                 return redirect(self.success_url)
+
+        elif search:
+            self.entries = request.user.entries.filter(
+                Q(name__icontains=search) |
+                Q(username__icontains=search) |
+                Q(uri__icontains=search)
+            )
 
         else:
             self.entries = request.user.entries.all()
