@@ -17,8 +17,13 @@
                         <button class="btn btn-open" modal-btn-id="add_folder">+</button>
                     </div>
                     <ul>
+                        <li><a href="{% url 'passwords:vault' %}">All</a></li>
                         {% for folder in user.folders.all %}
-                        <li><a href="{% url 'passwords:vault' %}?folder={{ folder.name }}">{{ folder.name }} <span class="small">({{ folder.entries.all|length }})</span></a></li>
+                            {% if folder.name == request.GET.folder %}
+                                <li><a href="{% url 'passwords:vault' %}?folder={{ folder.name }}" style="color: #175DDC;">{{ folder.name }} <span class="small">({{ folder.entries.all|length }})</span></a></li>
+                            {% else %}
+                                <li><a href="{% url 'passwords:vault' %}?folder={{ folder.name }}">{{ folder.name }} <span class="small">({{ folder.entries.all|length }})</span></a></li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 </div>
@@ -57,7 +62,7 @@
     </div>
     <div class="col-7 vault-list">
         <div class="header">
-            <h2>My Vault</h2>
+            <h2>My Vault <span class="small">({{ request.GET.folder|default:"All" }})</span></h2>
             <button class="btn btn-open" modal-btn-id="add_item">+ Add Item</button>
         </div>
 
@@ -137,7 +142,8 @@
                     <div class="field">
                         <div class="fit-input-wrapper">
                             <div class="fit-input-wrapper-inner">
-                                {% render_field form.notes rows=6 class+="fit-input" %}
+                                <!-- {% render_field form.notes rows=6 class+="fit-input" %} -->
+                                <textarea rows=6 class="fit-input"></textarea>
                             </div>
                         </div>
                     </div>
@@ -247,7 +253,8 @@
                                             <div class="field">
                                                 <div class="fit-input-wrapper">
                                                     <div class="fit-input-wrapper-inner">
-                                                        {% render_field form.notes rows=6 class+="fit-input" value=entry.notes %}
+                                                        <!-- {% render_field form.notes rows=6 class+="fit-input" %} -->
+                                                        <textarea rows=6 class="fit-input"></textarea>
                                                     </div>
                                                 </div>
                                             </div>

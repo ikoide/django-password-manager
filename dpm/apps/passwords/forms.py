@@ -8,8 +8,8 @@ class EntryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
         super(EntryForm, self).__init__(*args, **kwargs)
-        if self.instance:
-            self.fields["notes"].initial = self.instance.notes
+        #if self.instance:
+        #    self.fields["notes"].initial = self.instance.notes
 
         self.fields["folder"].queryset = self.user.folders.all()
 
@@ -20,7 +20,8 @@ class EntryForm(forms.ModelForm):
 
     class Meta:
         model = Entry
-        fields = ("name", "username", "password", "uri", "notes", "folder")
+        #fields = ("name", "username", "password", "uri", "notes", "folder")
+        fields = ("name", "username", "password", "uri", "folder")
         widgets = {
             "password": TextInput()
         }

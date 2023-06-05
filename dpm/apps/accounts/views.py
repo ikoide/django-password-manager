@@ -22,6 +22,7 @@ class RegistrationView(CreateView):
         next_url = self.request.POST.get("next")
         success_url = reverse("accounts:login")
         if next_url:
+            messages.add_message(self.request, messages.SUCCESS, "Account successfully registered.")
             success_url += "?next={}" % next_url
 
         return success_url

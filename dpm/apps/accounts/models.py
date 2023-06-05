@@ -20,9 +20,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Folder(models.Model):
     uid = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=32, unique=True)
+    name = models.CharField(max_length=32)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="folders")
+
+    class Meta:
+        unique_together = ("user", "name")
 
     def __str__(self):
         return f"{self.name}"
